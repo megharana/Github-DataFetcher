@@ -4,15 +4,49 @@
     <meta charset="utf-8">
     <title>Vue Instances</title>
     <link href="styles.css" rel="stylesheet"/>
-    <script src="https://unpkg.com/vue">
-      
-    </script>
+    <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <meta name="viewport" content ="width=device-width,initial scale=1.0">
+    <meta https-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </head>
   <body>
     <h1>Multiple instances in Vue JS</h1>
+    
 
-    <div id="app">{{info}}</div>
+    <div id="app"> 
+      <div class="container">
+        <table class="striped center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in users">
+              <td>{{user.username}}</td>
+              <td>{{user.usertype}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="collection">
+          <li class="collection-item avatar">
+            <img src="images/passport_pic.jpg" alt="" class="circle">
+            <span class="title">Title</span>
+            <p>First Line <br>
+                Second Line
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          </li>
+        </ul>  
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
