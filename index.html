@@ -32,19 +32,17 @@
             <tr v-for="user in users">
               <td>{{user.username}}</td>
               <td>{{user.usertype}}</td>
+              <!-- <td>{{user.userAvatarUrl}}</td> -->
+              <td>
+              <ul class="collection">
+                <li class="collection-item avatar" >
+                  <img src="{{user.userAvatarUrl}}" alt="" class="circle">
+                </li>
+              </ul>
+              </td>
             </tr>
           </tbody>
-        </table>
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <img src="images/passport_pic.jpg" alt="" class="circle">
-            <span class="title">Title</span>
-            <p>First Line <br>
-                Second Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-        </ul>  
+        </table>  
       </div>
     </div>
     <script src="app.js"></script>
