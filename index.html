@@ -11,35 +11,97 @@
     <meta https-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
+    <style type="">
+      .collection .collection-item.avatar.circle{
+        position: relative;
+        padding-top: 10px;
+        /*width: 42px;
+        height: 42px;
+        overflow: hidden;
+        left: 15px;
+        display: inline-block;
+        vertical-align: middle;*/
+      }
+    </style>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <h1>Multiple instances in Vue JS</h1>
+    
     
 
     <div id="app"> 
       <div class="container">
-        <table class="striped center">
+        <h1>Search users from github</h1>
+        <div class="row">
+          <form class="col s12" method="POST" id="app" @submit.prevent="addUser">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate" v-model="userName">
+                <label for="icon_prefix">First Name</label>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">play_arrow</i>
+                </button>
+                
+              </div>
+            </div> 
+          </form>
+        </div>
+        <!-- ********************************USER LIST******************************** -->
+        <h1>USER LIST</h1>
+        <div>
+          <form>
+            <table>
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="user in usersList">
+                  <td>
+                      <p>
+                        <label>
+                          <input class="with-gap" name="group1" type="radio" checked />
+                          <span>{{user}}</span>
+                        </label>
+                      </p>
+                  </td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        
+
+        <!-- **********************************SAVED USER LIST********************************** -->
+        <h1>Users Saved</h1>
+        <table class=" center">
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>Type</th>
+              <th>Date of Creation</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="user in users">
+              <td>
+              <span class="collection">
+                <span class="collection-item avatar" >
+                  <img :src="user.userAvatarUrl" alt="" class="circle">
+                </span>
+              </span>
+              </td>
               <td>{{user.username}}</td>
               <td>{{user.usertype}}</td>
+              <td>{{user.createdDate}}</td>
               <!-- <td>{{user.userAvatarUrl}}</td> -->
-              <td>
-              <ul class="collection">
-                <li class="collection-item avatar" >
-                  <img :src="user.userAvatarUrl" alt="" class="circle">
-                </li>
-              </ul>
-              </td>
+              
             </tr>
           </tbody>
         </table>  
